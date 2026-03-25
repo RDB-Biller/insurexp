@@ -26,5 +26,5 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 app.use(cors({
-  origin: "https://insurexphome.vercel.app/"
+  origin: "*"
 }));
