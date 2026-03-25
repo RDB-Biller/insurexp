@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hospital {
+  id   String @id @default(uuid())
+  name String
+}
+
+model Service {
+  id         String @id @default(uuid())
+  name       String
+  price      Float
+  hospitalId String
+}
+
+model Bill {
+  id          String @id @default(uuid())
+  patientName String
+  subtotal    Float
+  discount    Float
+  cashback    Float
+  total       Float
+  status      String @default("pending")
+  verificationStatus String @default("pending")
+  settlementType String?
+  createdAt   DateTime @default(now())
+
+  items BillItem[]
+}
+
+model BillItem {
+  id        String @id @default(uuid())
+  billId    String
+  name      String
+  quantity  Int
+  price     Float
+}
