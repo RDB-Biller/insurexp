@@ -1,0 +1,19 @@
+{
+  "name": "insurexp-backend",
+  "version": "1.0.0",
+  "description": "InsureXP Backend API",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "npx prisma migrate deploy && node src/app.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0",
+    "prisma": "^5.0.0"
+  }
+}
