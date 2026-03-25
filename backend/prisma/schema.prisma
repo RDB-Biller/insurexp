@@ -37,6 +37,7 @@ model Bill {
 model BillItem {
   id        String @id @default(uuid())
   billId    String
+  bill      Bill @relation(fields: [billId], references: [id])
   name      String
   quantity  Int
   price     Float
